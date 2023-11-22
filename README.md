@@ -10,7 +10,7 @@ Ce projet consiste à construire un site web pour une pépinière O'PEP en utili
 
 | diagramme de cas d'utilisation  | diagramme de classe | diagramme de séquence | 
 | ------------------------------- | ------------------- | --------------------- |
-| ![](./images/..)  | ![](./images/..)  | ![](./images/..)  | 
+| ![](./images/classe.png)  | ![](./images/..)  | ![](./images/..)  | 
 
 
 ### 2.  Tableau Jira
