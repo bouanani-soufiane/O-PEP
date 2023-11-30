@@ -144,6 +144,7 @@ select.choix {
     display: flex;
     flex-wrap: wrap;
 }
+
 .containerx .product,
 .container .product {
     width: calc(33.33% - 60px);
@@ -270,6 +271,6 @@ select.choix {
     margin-top: 5px;
 }
 
-.cart-shopping{
+.cart-shopping {
     cursor: pointer;
 }

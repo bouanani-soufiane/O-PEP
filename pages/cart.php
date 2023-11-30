@@ -9,7 +9,7 @@ session_start();
 <style>
     .cart-container {
         max-width: 800px;
-        margin: 220px auto;
+        margin: 120px auto;
         background-color: #fff;
         padding: 20px;
         border-radius: 8px;
@@ -68,41 +68,56 @@ session_start();
         font-size: 1.2em;
 
     }
+
+    .commander {
+        background-color: #4caf50;
+        height: fit-content;
+        padding: 10px;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    .supprimer {
+        background-color: #ff5722;
+        height: fit-content;
+        padding: 10px;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
 </style>
-
-
-
 
 <div class="cart-container">
     <?php
-    $idUser = $_SESSION["idUser"] ;
-    $sql = "SELECT * from panierplante,panier,plante where panierplante.plante_id = plante.idPlante and panierplante.panier_id = panier.idPanier and panier.idUser =   $idUser ;";
+    $idUser = $_SESSION["idUser"];
+    $idPanier = $_SESSION["panierId"];
+    $sql = "SELECT * from panierplante,panier,plante where panierplante.plante_id = plante.idPlante and panierplante.panier_id = panier.idPanier and panier.idUser =   $idUser and  panierplante.status = 1 ;";
     $request = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_row($request)) {
 
-        ?>
+    ?>
         <div class="cart-item">
 
             <div class="item-image">
-                <img src="../uploads/<?= $row[8] ?>" alt="Product 1">
+                <img src="../uploads/<?= $row[10] ?>" alt="Product 1">
             </div>
             <div class="item-details">
-                <div class="item-title"><?= $row[6] ?></div>
-                <div class="item-price">price : <?= $row[7] ?> $</div>
-                <div class="item-quantity">quantity : <?= $row[2] ?></div>
+                <div class="item-title"><?= $row[8] ?></div>
+                <div class="item-price">price : <?= $row[9] ?> $</div>
+                <div class="item-quantity">quantity : <?= $row[3] ?></div>
 
             </div>
-            <button class="checkout-btn">Proceed to Checkout</button>
+            <a class="commander" href="../includes/commander.inc.php?id=<?= $row[0]; ?>&idPanier=<?= $idPanier; ?>">commander</a>
+            <a class="supprimer" href="../includes/supprimerCommande.inc.php?id=<?= $row[1]; ?>">supprimer</a>
 
         </div>
-        <?php
+    <?php
     }
     ?>
 
-    <div class="total">Total: $69.97</div>
-
-    <button class="checkout-btn">Proceed to Checkout</button>
 </div>
 </body>
 

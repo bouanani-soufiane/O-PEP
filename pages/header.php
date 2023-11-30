@@ -26,9 +26,11 @@ session_start();
         </nav>
         <div class="form containerx">
             <?php
-            if (isset($_SESSION["useremail"])) {
+            if (isset($_SESSION["client"])) {
                 echo '<form action="../includes/logout.inc.php" method="post">
                 <button type="submit" name="logout-submit">Logout</button>
+                <a class="cart-shopping" href="../pages/cart.php">card <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+
             </form>';
             } else {
                 echo '<form action="../includes/login.inc.php" method="post">
@@ -39,7 +41,6 @@ session_start();
             <a href="signup.php">Sign Up</a>';
             }
             ?>
-            <a class="cart-shopping" href="../pages/cart.php">card <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
             <script src="your_existing_script.js"></script>

@@ -1,6 +1,11 @@
 <?php
 require "./header.php";
 require "../includes/dbh.inc.php";
+
+
+if(!$_SESSION['client']){
+    header('Location: signup.php');
+}
 ?>
 <style>
     .forms {
@@ -105,7 +110,6 @@ require "../includes/dbh.inc.php";
                         <label for="<?= $row[1] ?>"><?= $row[1] ?></label>
                     </div>
 
-
                 <?php
                 }
                 ?>
@@ -113,13 +117,7 @@ require "../includes/dbh.inc.php";
             </form>
         </div>
         <div class="main x">
-            <?php
-            // session_start();
-            echo $_SESSION["client"] . "<br>";
-            echo $_SESSION["idUser"] . "<br>";
-            echo $_SESSION["useremail"] . "<br>";
-            echo $_SESSION["panierId"] . "<br>";
-            ?>
+       
             <div class="details" id="plantes">
 
                 <input type="search" class="form-control" id="live_search" autocomplete="off" placeholder="search">

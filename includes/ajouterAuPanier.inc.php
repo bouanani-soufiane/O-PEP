@@ -19,10 +19,3 @@ if (isset($_GET['id'])) {
 };
 ?>
 
-     <?php
-        // session_start();
-        // echo $_SESSION["client"] . "<br>";
-        // echo $_SESSION["userId"] . "<br>";
-        // echo $_SESSION["useremail"] . "<br>";
-        // echo $_SESSION["panierId"] . "<br>";
-        ?>

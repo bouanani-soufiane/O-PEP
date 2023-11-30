@@ -2,6 +2,9 @@
 session_start();
 require "../includes/dbh.inc.php";
 error_reporting(E_ALL);
+if (!$_SESSION['admin']) {
+    header('Location: signup.php');
+}
 
 ?>
 <!DOCTYPE html>
@@ -309,7 +312,7 @@ error_reporting(E_ALL);
                 <div class="box">
                     <div class="">
                         <h1>Gestion des categories</h1>
-                        <form class="form" action="../includes/ajouterCateg.inc.php" method="post" enctype="multipart/form-data">
+                        <form class="form" action="../includes/ajouterCateg.inc.php" method="post" >
                             <input name="nomCateg" type="text" placeholder="nom">
                             <button class="btn btn-add" name="ajouterCateg">
                                 ajouter categorie
